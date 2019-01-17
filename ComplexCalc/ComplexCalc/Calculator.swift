@@ -16,8 +16,21 @@ class Calculator {
     * lhs (Int) - left argument to be added.
     * rhs (Int) - right argument to be added.
     */
-    func add(_ lhs : (Int),_ rhs : (Int)) -> (Int) {
+    func add(lhs : Int, rhs : Int) -> Int {
         return lhs + rhs;
+    }
+    
+    /*
+    * Adds every number in the array. Returns result
+    * args [Int] - An array of integers.
+    */
+    func add(_ args : [Int]) -> Int {
+        var sum = 0
+        for i in args {
+            sum += i
+        }
+        
+        return sum;
     }
     
     /*
@@ -25,7 +38,7 @@ class Calculator {
     * lhs (Int) - left argument to be subtracted from.
     * rhs (Int) - right argument to be used to subtract.
     */
-    func subtract(_ lhs : (Int),_ rhs : (Int)) -> (Int) {
+    func subtract(lhs : Int, rhs : Int) -> Int {
         return lhs - rhs;
     }
     
@@ -34,8 +47,17 @@ class Calculator {
     * lhs (Int) - left argument to be multiplied.
     * rhs (Int) - right argument to be multiplied.
     */
-    func multiply(_ lhs : (Int),_ rhs : (Int)) -> (Int) {
+    func multiply(lhs : Int, rhs : Int) -> Int {
         return lhs * rhs;
+    }
+    
+    func multiply(_ args : [Int]) -> Int {
+        var product = 1
+        for i in args {
+            product *= i
+        }
+        
+        return product
     }
     
     /*
