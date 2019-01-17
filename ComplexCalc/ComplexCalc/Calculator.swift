@@ -43,7 +43,7 @@ class Calculator {
     * lhs (Int) - left argument to be divided from.
     * rhs (Int) - right argument to be used to divide.
     */
-    func divide(_ lhs : (Int),_ rhs : (Int)) -> (Int) {
+    func divide(lhs : Int, rhs : Int) -> Int {
         if(rhs != 0) {
             return lhs/rhs
         }
@@ -51,8 +51,21 @@ class Calculator {
         return 0;
     }
     
-    func mathOp(_ args : [Int], beg : Int; _ op: (Int)) -> Int {
-        return 1
+    /*
+    * Iteratively computes the given function for each element in the array
+    * starting with the beg index.
+    * Example: Given the array [0, 1, 2], beginning at 0
+    * computes and returns ((0 op 1) op 2)
+    * args [array] - array of integers
+    * beg (Int) - starting index.
+    * op - An anonymous function to do a simple math operation.
+    */
+    func mathOp(_ args : [Int], beg : Int, op: (Int, Int) -> Int) -> Int {
+        var result = args[beg];
+        for i in beg+1...count(args)-1 {
+            result = op(result, args[i])
+        }
+        return result
     }
     
     /*
