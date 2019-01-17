@@ -42,9 +42,14 @@ class Calculator {
         return (lhs.0 + rhs.0, lhs.1 + rhs.1)
     }
     
-    func add(lhs : [String x : Int, String y : Int], rhs : [String x: Int, String y: Int]) -> [String : Int, String : Int] {
-        var x = lhs.x + rhs.x
-        var y = lhs.y + rhs.y
+    /*
+    * Adds x components and y components of dictionaries and returns resulting dictionary.
+    * lhs [String : Int] - A dictionary containing keys ["x", "y"] and integer values.
+    * rhs [String : Int] - A dictionary containing keys ["x", "y"] and integer values.
+    */
+    func add(lhs : [String : Int], rhs : [String : Int]) -> [String : Int] {
+        let x = lhs["x"]! + rhs["x"]!
+        let y = lhs["y"]! + rhs["y"]!
         
         return ["x": x, "y": y]
     }
