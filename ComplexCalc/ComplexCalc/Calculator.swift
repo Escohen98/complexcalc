@@ -34,12 +34,38 @@ class Calculator {
     }
     
     /*
+    * Adds left tuple to right tuple. Returns result.
+    * lhs (Int, Int) - A tuple containing two integers.
+    * rhs (Int, Int) - A tuple containing two integers.
+    */
+    func add(lhs : (Int, Int), rhs : (Int, Int)) -> (Int, Int) {
+        return (lhs.0 + rhs.0, lhs.1 + rhs.1)
+    }
+    
+    func add(lhs : [String x : Int, String y : Int], rhs : [String x: Int, String y: Int]) -> [String : Int, String : Int] {
+        var x = lhs.x + rhs.x
+        var y = lhs.y + rhs.y
+        
+        return ["x": x, "y": y]
+    }
+    
+    
+    /*
     * Subtracts lhs by rhs. Returns difference.
     * lhs (Int) - left argument to be subtracted from.
     * rhs (Int) - right argument to be used to subtract.
     */
     func subtract(lhs : Int, rhs : Int) -> Int {
         return lhs - rhs;
+    }
+    
+    /*
+     * Subtracts left tuple to right tuple. Returns result.
+     * lhs (Int, Int) - A tuple containing two integers.
+     * rhs (Int, Int) - A tuple containing two integers.
+     */
+    func subtract(lhs : (Int, Int), rhs : (Int, Int)) -> (Int, Int) {
+        return (lhs.0 - rhs.0, lhs.1 - rhs.1)
     }
     
     /*
@@ -51,6 +77,10 @@ class Calculator {
         return lhs * rhs;
     }
     
+    /*
+     * Multiplies every number in the array. Returns result
+     * args [Int] - An array of integers.
+     */
     func multiply(_ args : [Int]) -> Int {
         var product = 1
         for i in args {
@@ -74,6 +104,16 @@ class Calculator {
     }
     
     /*
+    * Computes the given function with given integers. Computes and returns result.
+    * lhs (Int) - left argument to be used in op
+    * rhs (Int) - right argument to be used in op
+    * op - An anonymous function to do a simple math operation.
+    */
+    func mathOp(lhs: Int, rhs: Int, op: (Int, Int) -> Int) -> Int {
+        return op(lhs, rhs)
+    }
+    
+    /*
     * Iteratively computes the given function for each element in the array
     * starting with the beg index.
     * Example: Given the array [0, 1, 2], beginning at 0
@@ -82,7 +122,7 @@ class Calculator {
     * beg (Int) - starting index.
     * op - An anonymous function to do a simple math operation.
     */
-    func mathOp(_ args : [Int], beg : Int, op: (Int, Int) -> Int) -> Int {
+    func mathOp(args : [Int], beg : Int, op: (Int, Int) -> Int) -> Int {
         var result = args[beg];
         for i in beg+1...count(args)-1 {
             result = op(result, args[i])
