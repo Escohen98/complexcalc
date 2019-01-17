@@ -74,6 +74,19 @@ class Calculator {
     }
     
     /*
+     * Subtracts x components and y components of dictionaries and returns resulting
+     * dictionary.
+     * lhs [String : Int] - A dictionary containing keys ["x", "y"] and integer values.
+     * rhs [String : Int] - A dictionary containing keys ["x", "y"] and integer values.
+     */
+    func subtract(lhs : [String : Int], rhs : [String : Int]) -> [String : Int] {
+        let x = lhs["x"]! - rhs["x"]!
+        let y = lhs["y"]! - rhs["y"]!
+        
+        return ["x": x, "y": y]
+    }
+    
+    /*
     * Multiplies lhs with rhs. Returns product.
     * lhs (Int) - left argument to be multiplied.
     * rhs (Int) - right argument to be multiplied.
